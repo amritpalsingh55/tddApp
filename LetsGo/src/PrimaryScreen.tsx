@@ -4,28 +4,28 @@ import { Text, View, StyleSheet, TextInput, Button } from "react-native";
 const PrimaryScreen = () => {
     const [total, setTotal] = useState<string | null>('0');
     const [input, setInput] = useState<string>('');
-    
+
     const addNumbers = () => {
-        // Use a regular expression to find all numbers in the string
+        // Using a regular expression to find all numbers in the string
         const numbers = input?.match(/\d+/g);
 
-        // If no numbers are found, return 0
-        if (!numbers){
-             return 0;
+        // If no numbers are found, set value to 0
+        if (!numbers) {
+            setTotal('0');
         }
-        else{
+        else {
 
-        // Convert the matched strings to numbers and sum them
-        const sum = numbers.map(Number).reduce((acc, num) => acc + num, 0);
+            // Converting the matched strings to numbers and add them
+            const sum = numbers.map(Number).reduce((acc, num) => acc + num, 0);
 
-        setTotal(sum.toString());
+            setTotal(sum.toString());
         }
     }
     return (
         <View style={styles.container}>
             <Text style={styles.title}>String Calculator</Text>
-            <TextInput onChangeText={(val) => setInput(val)} style={styles.inputField} />
-            <Button onPress={addNumbers} title="Calculate" />
+            <TextInput testID="input-field" onChangeText={(val) => setInput(val)} style={styles.inputField} />
+            <Button testID="btn-calculate" onPress={() => addNumbers()} title="Calculate" />
             <Text style={styles.total}>`Sum {total ?? 0}`</Text>
         </View>
     );
