@@ -16,7 +16,7 @@ To use this component, you need to have a React Native environment set up. Follo
 1. Clone the repository:
     ```sh
     git clone https://github.com/amritpalsingh55/tddApp.git
-    cd tddApp/LetsGo
+    cd tddApp
     ```
 
 2. Install dependencies:
